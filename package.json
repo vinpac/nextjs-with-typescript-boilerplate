@@ -1,0 +1,68 @@
+{
+  "name": "blank",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "type-check": "tsc --pretty --noEmit",
+    "format": "prettier --write **/*.{js,ts,tsx}",
+    "lint": "eslint . --ext ts --ext tsx --ext js",
+    "test": "jest",
+    "test-all": "yarn lint && yarn type-check && yarn test"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn type-check && lint-staged",
+      "post-commit": "yarn type-check && git update-index --again"
+    }
+  },
+  "lint-staged": {
+    "**/*.js": [
+      "prettier --write"
+    ],
+    "**/*.{ts,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ]
+  },
+  "dependencies": {
+    "@reach/tooltip": "^0.10.5",
+    "classnames": "^2.2.6",
+    "next": "^10.0.4",
+    "next-seo": "^4.7.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-icons": "^3.10.0",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss7-compat": "^2.0.2",
+    "@tailwindcss/typography": "^0.2.0",
+    "autoprefixer": "^9",
+    "postcss": "^7",
+    "@testing-library/react": "^10.4.4",
+    "@types/classnames": "^2.2.10",
+    "@types/jest": "^26.0.4",
+    "@types/next-seo": "^1.10.0",
+    "@types/node": "^14.0.14",
+    "@types/react": "^16.9.41",
+    "@types/react-dom": "^16.9.8",
+    "@types/react-icons": "^3.0.0",
+    "@types/react-transition-group": "^4.4.0",
+    "@types/testing-library__react": "^10.2.0",
+    "@typescript-eslint/eslint-plugin": "^3.8.0",
+    "@typescript-eslint/parser": "^3.6.0",
+    "babel-jest": "^26.1.0",
+    "eslint": "^7.6.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-react": "^7.20.3",
+    "eslint-plugin-react-hooks": "^4.0.8",
+    "husky": "^4.2.5",
+    "jest": "^26.1.0",
+    "jest-watch-typeahead": "^0.6.0",
+    "lint-staged": "^10.2.11",
+    "postcss-preset-env": "^6.7.0",
+    "prettier": "^2.0.5",
+    "typescript": "^3.9.6"
+  }
+}
